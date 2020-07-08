@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <link rel="stylesheet" href="./cp css.css">
+    <meta http-equiv=Content-Type content="text/html; charset=utf-8">
+    <title>苏州晶云药物科技股份有限公司</title>
+</head>
+
+<body>
+    <div id="hdline"></div>
+    <a id='cplogo' href="http://www.crystalpharmatech.com.cn/"></a>
+    <a id='login' href="http://www.crystalpharmatech.com.cn/Public/login">登录</a>
+    <a id='signup' href="http://www.crystalpharmatech.com.cn/Public/signup">注册</a>
+    <input type="text" id="search" placeholder="  站内搜索">
+    <a id='search_img' href="http://www.crystalpharmatech.com.cn/Public/search"></a>
+    <div id="cnversion_box"><a id='cnversion' href="http://www.crystalpharmatech.com.cn/?l=zh-cn">中文版</a></div>
+    <a id='egversion' href="https://www.crystalpharmatech.com/">English</a>
+
+    <div id="main_menu">
+        <ul id="menu_frame">
+            <li class="menu_list"><a style="color: #329bdd;;" href="http://www.crystalpharmatech.com.cn/">首页</a></li>
+
+            <li class="menu_list"><a href="http://www.crystalpharmatech.com.cn/profile.html">关于我们</a>
+                <div class="triangle" style="left: 334px;"></div>
+                <ul class="list_frame" style="left: 274px;">
+                    <li class="list_content"><a href="http://www.crystalpharmatech.com.cn/profile.html">公司简介</a></li>
+                    <li class="list_content"><a href="http://www.crystalpharmatech.com.cn/coreteam.html">核心团队</a></li>
+                    <li class="list_content"><a href="http://www.crystalpharmatech.com.cn/consultantteam.html">顾问团队</a>
+                    </li>
+                    <li class="list_content"><a
+                            href="http://www.crystalpharmatech.com.cn/strategiccooperation.html">战略合作</a></li>
+                </ul>
+            </li>
+
+            <li class="menu_list"><a href="http://www.crystalpharmatech.com.cn/rawmaterials.html">技术服务</a>
+                <div class="triangle" style="left: 477px;"></div>
+                <ul class="list_frame" style="left: 417px;">
+                    <li class="list_content"><a href="http://www.crystalpharmatech.com.cn/rawmaterials.html">晶型研究</a>
+                    </li>
+                    <li class="list_content"><a
+                            href="http://www.crystalpharmatech.com.cn/crystallization.html">化学工艺开发</a></li>
+                    <li class="list_content"><a
+                            href="http://www.crystalpharmatech.com.cn/prescriptionresearch.html">制剂开发</a></li>
+                    <li class="list_content"><a href="http://www.crystalpharmatech.com.cn/druganalysis.html">药物分析</a>
+                    </li>
+                    <li class="list_content"><a href="http://www.crystalpharmatech.com.cn/detection.html">固态检测</a></li>
+                </ul>
+            </li>
+
+            <li class="menu_list"><a href="http://www.crystalpharmatech.com.cn/Companynews.html">新闻动态</a>
+                <div class="triangle" style="left: 620px;"></div>
+                <ul class="list_frame" style="left: 560px;">
+                    <li class="list_content"><a href="http://www.crystalpharmatech.com.cn/Companynews.html">公司新闻</a>
+                    </li>
+                    <li class="list_content"><a href="http://www.crystalpharmatech.com.cn/active.html">市场活动</a></li>
+                </ul>
+            </li>
+
+            <li class="menu_list"><a href="http://www.crystalpharmatech.com.cn/customerevaluation.html">信息资源</a>
+                <div class="triangle" style="left: 763px;"></div>
+                <ul class="list_frame" style="left: 703px;">
+                    <li class="list_content"><a
+                            href="http://www.crystalpharmatech.com.cn/customerevaluation.html">客户评价</a></li>
+                    <li class="list_content"><a href="http://www.crystalpharmatech.com.cn/datadownload.html">资料下载</a>
+                    </li>
+                </ul>
+            </li>
+
+            <li class="menu_list"><a href="http://www.crystalpharmatech.com.cn/talentproject.html">人才招聘</a>
+                <div class="triangle" style="left: 906px;"></div>
+                <ul class="list_frame" style="left: 846px;">
+                    <li class="list_content"><a href="http://www.crystalpharmatech.com.cn/talentproject.html">认识晶云</a>
+                    </li>
+                    <li class="list_content"><a
+                            href="http://www.crystalpharmatech.com.cn/campusrecruitment.html">校园招聘</a></li>
+                    <li class="list_content"><a
+                            href="http://www.crystalpharmatech.com.cn/socialrecruitment.html">社会招聘</a></li>
+                </ul>
+            </li>
+
+            <li class="menu_list" style="border-right: solid 1px #e4e4e4;;"><a
+                    href="http://www.crystalpharmatech.com.cn/contactus.html">联系我们</a></li>
+        </ul>
+    </div>
+
+    <div id="photo">
+        <transition name="fade"><a v-if="show_index" href="http://www.crystalpharmatech.com.cn/">
+                <img id="image_1" src="images/赵烨.jpg"></a></transition>
+        <transition name="fade"><a v-if="!show_index" href="http://www.crystalpharmatech.com.cn/">
+                <img id="image_2" src="images/丽萍.jpg"></a></transition>
+        <div @click="change()" id="left_arrow"></div>
+        <div @click="change()" id="right_arrow"></div>
+        <div v-if="show_index" @click="change()" id="rhombus_reverse"></div>
+        <div v-if="!show_index" @click="change()" id="rhombus"></div>
+    </div>
+
+    <script src='C:\Users\ciqu\Downloads\vue.js'></script>
+
+    <script>
+        const vm1 = new Vue({
+            el: '#photo',
+            data: {
+                show_index: true,
+            },
+            methods: {
+                take_turn() {
+                    this.show_index = !this.show_index
+                },
+                change() {
+                    this.show_index = !this.show_index
+                    breakInterval()
+                }
+            },
+            mounted() {
+                window.take_turns = this.take_turn
+            }
+        })
+
+        intervalID = setInterval(take_turns, 3000)
+
+        var breakInterval = function () {
+            clearInterval(intervalID)
+            intervalID = setInterval(take_turns, 3000)
+        }
+    </script>
+
+    <div id='business'>
+        <div id="business_1">
+            <a href="http://www.crystalpharmatech.com.cn/rawmaterials.html">
+                <div id="business_img_1"></div>
+            </a>
+            <a href="http://www.crystalpharmatech.com.cn/rawmaterials.html">
+                <div id="business_title_1">晶型研究</div>
+            </a>
+            <div id="business_line_1"></div>
+            <a href="http://www.crystalpharmatech.com.cn/rawmaterials.html">
+                <div id="business_content_1">系统研究药物固态性质，发现适合开发的盐型和晶型</div>
+            </a>
+        </div>
+
+        <div id="business_2">
+            <a href="http://www.crystalpharmatech.com.cn/crystallization.html">
+                <div id="business_img_2"></div>
+            </a>
+            <a href="http://www.crystalpharmatech.com.cn/crystallization.html">
+                <div id="business_title_2">化学工艺开发</div>
+            </a>
+            <div id="business_line_2"></div>
+            <a href="http://www.crystalpharmatech.com.cn/crystallization.html">
+                <div id="business_content_2">秉承质量源于设计理念，开发或优化合成及结晶工艺</div>
+            </a>
+        </div>
+
+        <div id="business_3">
+            <a href="http://www.crystalpharmatech.com.cn/prescriptionresearch.html">
+                <div id="business_img_3"></div>
+            </a>
+            <a href="http://www.crystalpharmatech.com.cn/prescriptionresearch.html">
+                <div id="business_title_3">制剂开发</div>
+            </a>
+            <div id="business_line_3"></div>
+            <a href="http://www.crystalpharmatech.com.cn/prescriptionresearch.html">
+                <div id="business_content_3">在药物开发的不同阶段，开发出合适的制剂工艺</div>
+            </a>
+        </div>
+
+        <div id="business_4">
+            <a href="http://www.crystalpharmatech.com.cn/druganalysis.html">
+                <div id="business_img_4"></div>
+            </a>
+            <a href="http://www.crystalpharmatech.com.cn/druganalysis.html">
+                <div id="business_title_4">药物分析</div>
+            </a>
+            <div id="business_line_4"></div>
+            <a href="http://www.crystalpharmatech.com.cn/druganalysis.html">
+                <div id="business_content_4">药物理化性质评估、分析方法开发验证及稳定性研究</div>
+            </a>
+        </div>
+
+        <div id="business_5">
+            <a href="http://www.crystalpharmatech.com.cn/detection.html">
+                <div id="business_img_5"></div>
+            </a>
+            <a href="http://www.crystalpharmatech.com.cn/detection.html">
+                <div id="business_title_5">固态检测</div>
+            </a>
+            <div id="business_line_5"></div>
+            <a href="http://www.crystalpharmatech.com.cn/detection.html">
+                <div id="business_content_5">提供原料药理化性质测试、制剂性质测试和小型研究</div>
+            </a>
+            <a href="http://www.crystalpharmatech.com.cn/Public/login">
+                <div id="SSCC">填写送样单</div>
+                <div id="SSCC_image"></div>
+            </a>
+        </div>
+    </div>
+
+    <script>
+        const btn = document.getElementById('SSCC')
+        btn.addEventListener('click', function () { alert('请先登录!') }, false)
+    </script>
+
+    <div id="counsel">
+        <div id="counsel_img"></div>
+        <div id='counsel_content'>您想要咨询的业务类型？</div>
+    </div>
+
+    <a href="http://www.crystalpharmatech.com.cn/">
+        <div id="new_drugs">
+            <div id="new_drugs_img"></div>
+            <div id="new_drugs_content">创新药项目</div>
+        </div>
+    </a>
+
+    <a href="http://www.crystalpharmatech.com.cn/">
+        <div id="generic_drugs">
+            <div id="generic_drugs_img"></div>
+            <div id="generic_drugs_content">仿制药项目</div>
+        </div>
+    </a>
+
+    <div id='affairs'>
+        <a href="http://www.crystalpharmatech.com.cn/Companynews.html">
+            <div id="affairs_title">新闻动态</div>
+        </a>
+    </div>
+
+    <a href="http://www.crystalpharmatech.com.cn/active/366.html">
+        <div id="news_1">
+            <div id="news_1_date">2019 <b>03-04</b></div>
+            <div id="news_1_title">晶云药物3月份市场活动信息...</div>
+            <div id='news_1_content'>苏州晶云药物科技股份有限公司近期将参加蒲公英-“药物晶型控制分析”主题网络研讨会，CPhI Japan 2019，同写意-“新药中美双...</div>
+            <div id="news_1_button"></div>
+        </div>
+    </a>
+
+    <a href="http://www.crystalpharmatech.com.cn/Companynews/314.html">
+        <div id="news_2">
+            <div id="news_2_date">2018 <b>06-07</b></div>
+            <div id="news_2_title">李永强博士加盟晶云药物，在苏州和多伦多两地建立高...</div>
+            <div id='news_2_content'>导读： 2018年6月，晶云药物宣布：李永强博士正式加盟晶云，担任晶云药物加拿大子公司Candoo Pharmatech CEO，并担任晶云苏州总部研发中心制...
+            </div>
+            <div id="news_2_button"></div>
+        </div>
+    </a>
+
+    <a href="http://www.crystalpharmatech.com.cn/Companynews/313.html">
+        <div id="news_3">
+            <div id="news_3_date">2018 <b>06-06</b></div>
+            <div id="news_3_title">王明文博士作为研发副总裁加入晶云，助力梦想结晶...</div>
+            <div id='news_3_content'>导读： 2018年5月，苏州晶云药物科技有限公司宣布：王明文博士正式加入晶云，担任研发副总裁，负责药物合成化学和工艺 (head of chemistry)。 ...
+            </div>
+            <div id="news_3_button"></div>
+        </div>
+    </a>
+
+    <div id="news_slides">
+        <div class="news_slides">
+            <transition name='slide-1'>
+                <div v-if='news_index' class="news_slides_img"><img style='width: 100%;height: 210px;'
+                        src="images/news_img_1.jpg">
+                </div>
+            </transition>
+            <transition name='slide-1'>
+                <div v-if='news_index' class='news_slides_title'>Joel Bernstein Memoria...</div>
+            </transition>
+            <transition name='slide-1'>
+                <div v-if='news_index' class="news_slides_time"><img src="images/时间.png"></div>
+            </transition>
+            <transition name='slide-1'>
+                <div v-if='news_index' class="news_slides_location"><img src="images/地点.png"></div>
+            </transition>
+        </div>
+
+        <div class="news_slides">
+            <transition name='slide-2'>
+                <div v-if='!news_index' class="news_slides_img"><img style='width: 100%;height: 210px;'
+                        src="images/news_img_2.jpg">
+                </div>
+            </transition>
+            <transition name='slide-2'>
+                <div v-if='!news_index' class='news_slides_title'>晶云药物3月份市场活动信息...</div>
+            </transition>
+            <transition name='slide-2'>
+                <div v-if='!news_index' class="news_slides_time"><img src="images/时间.png"></div>
+            </transition>
+            <transition name='slide-2'>
+                <div v-if='!news_index' id="news_sildes_time_content">2019年3月</div>
+            </transition>
+            <transition name='slide-2'>
+                <div v-if='!news_index' class="news_slides_location"><img src="images/地点.png"></div>
+            </transition>
+            <transition name='slide-2'>
+                <div v-if='!news_index' id="news_sildes_location_content">东京，上海</div>
+            </transition>
+        </div>
+
+        <div v-if='news_index' @click='change()' id="small_rhombus"></div>
+        <div v-if='!news_index' @click='change()' id="small_rhombus_reverse"></div>
+    </div>
+
+    <script>
+        const vm2 = new Vue({
+            el: '#news_slides',
+            data: {
+                news_index: true
+            },
+            methods: {
+                take_turn_2() {
+                    this.news_index = !this.news_index
+                },
+                change() {
+                    this.news_index = !this.news_index
+                    breakInterval_2()
+                }
+            },
+            mounted() {
+                window.take_turns_2 = this.take_turn_2
+            }
+        })
+
+        intervalID_2 = setInterval(take_turns_2, 3000)
+
+        var breakInterval_2 = function () {
+            clearInterval(intervalID_2)
+            intervalID_2 = setInterval(take_turns_2, 3000)
+        }
+    </script>
+
+    <div id="bottom">
+        <ul id="bottom_menu_frame">
+            <li class="bottom_menu_list">关于我们
+                <ul class="bottom_list_frame">
+                    <li style="line-height: 28px;"><a class="bottom_list_content"
+                            href="http://www.crystalpharmatech.com.cn/profile.html">公司简介</a></li>
+                    <li style="line-height: 28px;"><a class="bottom_list_content"
+                            href="http://www.crystalpharmatech.com.cn/coreteam.html">核心团队</a></li>
+                    <li style="line-height: 28px;"><a class="bottom_list_content"
+                            href="http://www.crystalpharmatech.com.cn/consultantteam.html">顾问团队</a>
+                    </li>
+                    <li style="line-height: 28px;"><a class="bottom_list_content"
+                            href="http://www.crystalpharmatech.com.cn/strategiccooperation.html">战略合作</a></li>
+                </ul>
+            </li>
+
+            <li class="bottom_menu_list">技术服务
+                <ul class="bottom_list_frame">
+                    <li style="line-height: 28px;"><a class="bottom_list_content"
+                            href="http://www.crystalpharmatech.com.cn/rawmaterials.html">晶型研究</a>
+                    </li>
+                    <li style="line-height: 28px;"><a class="bottom_list_content"
+                            href="http://www.crystalpharmatech.com.cn/crystallization.html">化学工艺开发</a></li>
+                    <li style="line-height: 28px;"><a class="bottom_list_content"
+                            href="http://www.crystalpharmatech.com.cn/prescriptionresearch.html">制剂开发</a></li>
+                    <li style="line-height: 28px;"><a class="bottom_list_content"
+                            href="http://www.crystalpharmatech.com.cn/druganalysis.html">药物分析</a>
+                    </li>
+                    <li style="line-height: 28px;"><a class="bottom_list_content"
+                            href="http://www.crystalpharmatech.com.cn/detection.html">固态检测</a></li>
+                </ul>
+            </li>
+
+            <li class="bottom_menu_list">新闻动态
+                <ul class="bottom_list_frame">
+                    <li style="line-height: 28px;"><a class="bottom_list_content"
+                            href="http://www.crystalpharmatech.com.cn/Companynews.html">公司新闻</a>
+                    </li>
+                    <li style="line-height: 28px;"><a class="bottom_list_content"
+                            href="http://www.crystalpharmatech.com.cn/active.html">市场活动</a></li>
+                </ul>
+            </li>
+
+            <li class="bottom_menu_list">信息资源
+                <ul class="bottom_list_frame">
+                    <li style="line-height: 28px;"><a class="bottom_list_content"
+                            href="http://www.crystalpharmatech.com.cn/customerevaluation.html">客户评价</a></li>
+                    <li style="line-height: 28px;"><a class="bottom_list_content"
+                            href="http://www.crystalpharmatech.com.cn/datadownload.html">资料下载</a>
+                    </li>
+                </ul>
+            </li>
+
+            <li class="bottom_menu_list">人才招聘
+                <ul class="bottom_list_frame">
+                    <li style="line-height: 28px;"><a class="bottom_list_content"
+                            href="http://www.crystalpharmatech.com.cn/talentproject.html">认识晶云</a>
+                    </li>
+                    <li style="line-height: 28px;"><a class="bottom_list_content"
+                            href="http://www.crystalpharmatech.com.cn/campusrecruitment.html">校园招聘</a></li>
+                    <li style="line-height: 28px;"><a class="bottom_list_content"
+                            href="http://www.crystalpharmatech.com.cn/socialrecruitment.html">社会招聘</a></li>
+                </ul>
+            </li>
+
+        </ul>
+
+        <div id="bottom_contact">
+            <div id="contact_1">关注我们</div>
+            <div id="contact_2"></div>
+            <div id="contact_3">聚焦新药·关注晶型</div>
+        </div>
+
+        <div id="bottom_statement">
+            <p>版权所有：© 2016 苏州晶云药物科技股份有限公司</p>
+            <a id='statement_ICP' href="http://www.beian.miit.gov.cn/">苏ICP备11027398号-2</a>
+            <a id='statement_contact_us' href="http://www.crystalpharmatech.com.cn/contactus.html">联系我们</a>
+        </div>
+    </div>
+
+
+    <div id="vm_back_top">
+        <div id="back_top" v-if='back_top_index' onclick="back_top()"></div>
+    </div>
+
+    <script>
+        var timer = null
+        var back_top = function () {
+            cancelAnimationFrame(timer)
+            timer = requestAnimationFrame(function fn() {
+                var oTop = document.body.scrollTop || document.documentElement.scrollTop
+                if (oTop > 0) {
+                    document.body.scrollTop = document.documentElement.scrollTop = oTop - 50
+                    timer = requestAnimationFrame(fn)
+                }
+                else {
+                    cancelAnimationFrame(timer)
+                }
+            })
+        }
+
+        const vm3 = new Vue({
+            el: '#vm_back_top',
+            data: {
+                back_top_index: false
+            },
+            mounted: function () {
+                window.addEventListener('scroll', this.show_back_top, true)
+            },
+            methods: {
+                show_back_top: function () {
+                    var oTop = document.body.scrollTop || document.documentElement.scrollTop
+                    this.back_top_index = oTop > 850 ? true : false
+                }
+            }
+        })
+    </script>
+
+</body>
+
+</html>
